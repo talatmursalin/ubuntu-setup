@@ -35,10 +35,10 @@ sudo apt-get install default-jre
 sudo apt-get install default-jdk
 printf "java installed successfully"
 
-printf "step #8 [install dropbox]\n"
-cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-~/.dropbox-dist/dropboxd
-printf "dropbox installed successfully\n"
+# printf "step #8 [install dropbox]\n"
+# cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+# ~/.dropbox-dist/dropboxd
+# printf "dropbox installed successfully\n"
 
 printf "step #9 [install vs code]\n"
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
