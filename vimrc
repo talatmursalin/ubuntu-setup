@@ -1,3 +1,4 @@
+execute pathogen#infect()
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -9,12 +10,25 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'joshdick/onedark.vim'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+Plugin 'aperezdc/vim-template'
+" Snippets are separated from the engine. Add this if you want them:
+" Plugin 'honza/vim-snippets'
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:email="mail@mail.com"
+let g:username="mursalin"
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -29,6 +43,12 @@ set mouse=a             " enable mouse support (might not work well on Mac OS X)
 "set showmatch           " highlight matching parentheses / brackets [{()}]
 set visualbell          " blink cursor on error, instead of beeping
 set laststatus=2
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+nnoremap <F9> :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=2
+nnoremap <F8> :w <CR> :!clear && echo -e "\n------output------" && g++ -g -O2 -std=gnu++14 % -o %< && ./%< <CR>
+let maplocalleader=" "
 """" Vim Appearance
 
 "put colorscheme files in ~/.vim/colors/
@@ -80,4 +100,3 @@ if (empty($TMUX))
                         set termguicolors
                           endif
                           endif
-
